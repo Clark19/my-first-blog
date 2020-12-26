@@ -1,0 +1,12 @@
+*.pyc
+*~
+__pycache__
+venv
+db.sqlite3
+/static
+.DS_Store
+test.html
+test.py
+python_intro.py
+testJupyterNB.ipynb
+/.ipynb_checkpoints
