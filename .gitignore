@@ -10,3 +10,4 @@ test.py
 python_intro.py
 testJupyterNB.ipynb
 /.ipynb_checkpoints
+/.idea

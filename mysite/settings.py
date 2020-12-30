@@ -120,3 +120,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+LOGIN_REDIRECT_URL = '/'
+# LOGIN_REDIRECT_URL = '/' 이거 없으면 로그인 성공 후 next 인자의 값이 비어있으면 /account/profile 로 이동함.
+# login 시 next인자(?next=) 값에 url 값 없으면 /(루트) url 로 이동하게 변경한거.
+# http://127.0.0.1:8000/accounts/login/?next=/post/new/ 이런식으로 next 인가 값있을땐 로그인 후 /post/new/ 로 이동함.
