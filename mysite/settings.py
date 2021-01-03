@@ -124,3 +124,5 @@ LOGIN_REDIRECT_URL = '/'
 # LOGIN_REDIRECT_URL = '/' 이거 없으면 로그인 성공 후 next 인자의 값이 비어있으면 /account/profile 로 이동함.
 # login 시 next인자(?next=) 값에 url 값 없으면 /(루트) url 로 이동하게 변경한거.
 # http://127.0.0.1:8000/accounts/login/?next=/post/new/ 이런식으로 next 인가 값있을땐 로그인 후 /post/new/ 로 이동함.
+LOGOUT_REDIRECT_URL = '/'
+# 장고 2.2.x버전 로그아웃할때 장고 admin 페이지로 가는 걸 루트 페이지로 가게 변경, 2.0.x버전은 urls.py에서 kwargs={'next_page': '/'}로 하면 됨.

@@ -1,11 +1,17 @@
 {% extends 'blog/base.html' %}
+
 {% block content %}
   {% for post in posts %}
       <div class="post">
           <div class="date">
               <p>published: {{ post.published_date }}</p>
           </div>
-          <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+          <h2><a href="{% url 'post_detail' pk=post.pk %}">
+          {# href="/post/{{ post.pk }}" 와 같은 하드코딩방식과 동일하지만 위처럼 url reverse 방식 사용함. #}
+          {# 이유: url 바껴도 url name인 post_detail은 안 바뀌므로 소스코드 수정할 필요가 없어서. #}
+              {{ post.title }}
+              </a>
+          </h2>
           <p>{{ post.text|linebreaksbr }}</p>
           <a href="{% url 'post_detail' pk=post.pk %}">
               Comments: {{ post.approved_comments.count }}

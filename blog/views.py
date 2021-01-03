@@ -19,13 +19,19 @@ def post_draft_list(request):
 
 
 def post_detail(request, pk):
+    """
+    try: # 이 코드로 대체가능하나 간단하게 get_object_or_404() 사용 함.
+        post = Post.objects.get(pk=pk)
+    except Post.DoesNotExist:
+        raise Http404 # Page no found: from django.http import Http404
+    """
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'blog/post_detail.html', {'post': post})
 
 @login_required
 def post_new(request):
     if request.method == "POST":
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user

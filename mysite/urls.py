@@ -17,10 +17,11 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.contrib.auth import views
 
+from mysite import settings
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('blog.urls')),
-    url(r'^accounts/login/$', views.login, name='login'),
-    url(r'^accounts/logout/$', views.logout, name='logout', kwargs={'next_page': '/'}),
-#     , kwargs={'next_page': '/'} 로그아웃 url 지정시 이부분 안 넣어주면, 로그아웃할때 장고 admin 페이지로 감.
+    url(r'^accounts/login/$', views.LoginView.as_view(), name='login'),
+    url(r'^accounts/logout/$', views.LogoutView.as_view(), name='logout'),
 ]
